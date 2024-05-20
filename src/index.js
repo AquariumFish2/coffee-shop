@@ -14,7 +14,7 @@ root.render(
       <CategoriesProvider>
         <ProductsProvider>
           <CartProvider>
-            <Router>
+            <Router basename="/coffee-shop">
               <App />
             </Router>
           </CartProvider>
