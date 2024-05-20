@@ -1,5 +1,6 @@
 {
   "name": "coffee-shop",
+  "homepage": "https://aquariumfish2.github.io/coffee-shop",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -50,3 +51,4 @@
     "gh-pages": "^6.1.1"
   }
 }
+
