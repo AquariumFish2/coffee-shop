@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import { CategoriesProvider } from "./contexts/CategoriesContext";
 import { NotificationProvider } from "./contexts/NotificationContext";
 import { CartProvider } from "./contexts/CartContext";
@@ -14,7 +14,7 @@ root.render(
       <CategoriesProvider>
         <ProductsProvider>
           <CartProvider>
-            <Router basename="/coffee-shop">
+            <Router basename="/">
               <App />
             </Router>
           </CartProvider>
