@@ -1,11 +1,11 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/header";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import HomePage from "./components/home/home";
 import CartPage from "./components/cart/cart";
 import { Box } from "@chakra-ui/react";
 import Notification from "./components/Notification";
-import { useContext } from "react";
+import { useContext, useLayoutEffect } from "react";
 import { notificationContext } from "./contexts/NotificationContext";
 import bgimg from "./assets/background.png";
 import Footer from "./components/Footer";
@@ -25,24 +25,36 @@ function App() {
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
         rel="stylesheet"
       />
-      <Box>
-        <Header></Header>
-        <Box
-          backgroundImage={bgimg}
-          // minHeight={""}
-          maxWidth={"100vw"}
-          fontFamily={"cursive"}
-        >
-          <Routes>
-            <Route path="/" element={<HomePage></HomePage>}></Route>
-            <Route path="/cart" element={<CartPage></CartPage>}></Route>
-          </Routes>
+      <Wrapper>
+        <Box>
+          <Header></Header>
+          <Box
+            backgroundImage={bgimg}
+            backgroundPosition={"center"}
+            maxWidth={"100vw"}
+            fontFamily={"cursive"}
+          >
+            <Box backgroundColor={"#00000020"}>
+              <Routes>
+                <Route path="/" element={<HomePage></HomePage>}></Route>
+                <Route path="/cart" element={<CartPage></CartPage>}></Route>
+              </Routes>
+            </Box>
+          </Box>
+          <Footer></Footer>
+          {visibility ? <Notification /> : <></>}
         </Box>
-        <Footer></Footer>
-        {visibility ?? <Notification />}
-      </Box>
+      </Wrapper>
     </ChakraProvider>
   );
 }
 
 export default App;
+
+const Wrapper = ({ children }) => {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
+  return children;
+};

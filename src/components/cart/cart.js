@@ -27,7 +27,7 @@ function CartPage() {
         width={"100vw"}
         maxWidth={"100%"}
         padding={"30px"}
-        gridTemplateColumns={"repeat(auto-fit,minmax(200px,25vw))"}
+        gridTemplateColumns={"repeat(auto-fit,minmax(300px,20vw))"}
         gap={"15px"}
         alignItems={"center"}
         justifyContent={"center"}

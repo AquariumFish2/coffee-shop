@@ -113,7 +113,10 @@ function Settings(props) {
           <SliderThumb background={colors.DarkCoffee} />
         </Slider>
       </HStack>
-      <Text>{dark[darkness]}</Text>
+      
+      <Text fontSize={"1.2em"} color={colors.mediumDark}>
+        {dark[darkness]}
+      </Text>
       <HStack>
         <Button
           onClick={() => {

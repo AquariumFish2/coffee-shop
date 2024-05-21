@@ -19,7 +19,8 @@ function CartItem(props) {
   return (
     <GridItem
       backgroundColor={"#ffffff"}
-      height={"350px"}
+      // height={"350px"}
+      padding={"50px"}
       key={item.name}
       borderRadius={"15px"}
       position={"relative"}

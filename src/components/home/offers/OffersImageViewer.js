@@ -25,7 +25,7 @@ function OffersImageViewer() {
         setCurrentOffer(0);
       }
       setImageOpacity(1);
-    }, 300);
+    }, 450);
   };
 
   const prevHandler = () => {
@@ -37,7 +37,7 @@ function OffersImageViewer() {
         setCurrentOffer(offerImages.length - 1);
       }
       setImageOpacity(1);
-    }, 300);
+    }, 450);
   };
 
   const selectImage = (index) => {
@@ -94,9 +94,8 @@ function OffersImageViewer() {
           <Box
             width={"75vw"}
             height={"inherit"}
-            opacity={imageOpacity}
-            transition={"opacity 0.3s"}
             position={"relative"}
+            bgColor={"#e9e9e950"}
             _before={{
               content: `"${offerImages[currentOffer].sale}%"`,
               position: "absolute",
@@ -110,6 +109,8 @@ function OffersImageViewer() {
           >
             <Image
               src={offerImages[currentOffer].img}
+              opacity={imageOpacity}
+              transition={"opacity 0.4s"}
               height={"inherit"}
               width={"inherit"}
               objectFit={"cover"}

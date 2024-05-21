@@ -4,6 +4,7 @@ import { notificationContext } from "../contexts/NotificationContext";
 
 function Notification(props) {
   const { close, content, alert } = useContext(notificationContext);
+  console.log(content);
   return (
     <Box
       position={"fixed"}
@@ -29,9 +30,9 @@ function Notification(props) {
       onClick={close}
       _before={{
         content: `"x"`,
-        fontSize:"0.8em",
-        padding:"1px 2px",
-        color:"white",
+        fontSize: "0.8em",
+        padding: "1px 2px",
+        color: "white",
         position: "absolute",
         top: "3px",
         right: "5px",
