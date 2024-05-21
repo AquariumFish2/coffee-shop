@@ -3,7 +3,7 @@ import { Box } from "@chakra-ui/react";
 function Layer(props) {
   return (
     <Box
-      position={"absolute"}
+      position={"fixed"}
       zIndex={100}
       minHeight={"100vh"}
       width={"100vw"}

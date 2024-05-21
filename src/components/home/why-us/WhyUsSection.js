@@ -6,7 +6,6 @@ import {
   TbBread,
   TbCactus,
   TbCoffee,
-  TbTruck,
 } from "react-icons/tb";
 
 function WhyUsSection() {
@@ -24,12 +23,13 @@ function WhyUsSection() {
       <Grid
       
         templateColumns={"1fr 1fr"}
+        templateAreas={"auto auto"}
         overflowWrap={"normal"}
         overflow={"hidden"}
         width={{ base: "100vw", md: "50vw" }}
         gap={{base:"30px",md:"60px"}}
         maxWidth={"100%"}
-        maxHeight={"80vh"}
+        height={"80vh"}
       >
         <Item
           title={"Fast Service"}

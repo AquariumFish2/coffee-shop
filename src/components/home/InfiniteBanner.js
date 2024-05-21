@@ -10,10 +10,10 @@ function InfiniteBanner() {
     "10% off for indoor ordering",
   ];
   return (
-    <Marquee pauseOnHover={true} speed={150} style={{backgroundColor:"#ffffff95"}}>
+    <Marquee pauseOnHover={true} speed={100} style={{backgroundColor:"#ffffff95"}}>
       {offers.map((offer, index) => (
         <HStack key={index} justifyContent={"space-between"} marginRight={50}>
-          <Text color="coffee" fontSize="lg" fontWeight="bold" marginRight={50}>
+          <Text color="coffee" fontSize="1.3em" fontWeight="bold" marginRight={50}>
             {offer}
           </Text>
           <Text>*</Text>

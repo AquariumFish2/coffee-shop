@@ -38,10 +38,16 @@ function Footer() {
         </NavLink>
         <VStack height={"inherit"} justifyContent={"center"} gap={"16px"}>
           <HStack>
-            <IconButton icon={<FaFacebook></FaFacebook>}></IconButton>
+            <IconButton
+              icon={<FaFacebook></FaFacebook>}
+              _hover={{ color: "blue" }}
+            ></IconButton>
             <IconButton icon={<FaXTwitter></FaXTwitter>}></IconButton>
             <IconButton icon={<FaInstagram></FaInstagram>}></IconButton>
-            <IconButton icon={<FaLinkedinIn></FaLinkedinIn>}></IconButton>
+            <IconButton
+              icon={<FaLinkedinIn></FaLinkedinIn>}
+              _hover={{ color: "blue" }}
+            ></IconButton>
           </HStack>
           <Text color={"white"}>phone: +123 456 789</Text>
         </VStack>

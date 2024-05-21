@@ -8,7 +8,7 @@ import ProductsSection from "./products/ProductsSection";
 
 function HomePage() {
   return (
-    <VStack gap={0}>
+    <VStack gap={0} userSelect={"none"}>
       <InfiniteBanner></InfiniteBanner>
       <HeroSection></HeroSection>
       <WhyUsSection></WhyUsSection>

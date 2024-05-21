@@ -24,6 +24,14 @@ function Settings(props) {
   const [darkness, setDarkness] = useState(item.darkness);
   const [sugarSpoons, setSugarSpoons] = useState(item.sugar);
   const [milk, setMilk] = useState(item.milk);
+  const dark = {
+    0: "Light Coffee",
+    20: "Medium Light",
+    40: "Medium",
+    60: "Medium Dark",
+    80: "Dark Coffee",
+    100: "Batman Special",
+  };
 
   console.log(
     "darkness:",
@@ -35,15 +43,14 @@ function Settings(props) {
   );
   return (
     <VStack
-      width={"50vw"}
-      position={"absolute"}
+      position={"fixed"}
+      margin={"0 auto"}
       top={"15vh"}
-      left={"25vw"}
       borderRadius={"15px"}
       zIndex={101}
       background={colors.lightCoffee}
       gap={"20px"}
-      padding={"30px"}
+      padding={"50px"}
     >
       <Image src={item.image} height={"100px"}></Image>
       <HStack>
@@ -106,6 +113,7 @@ function Settings(props) {
           <SliderThumb background={colors.DarkCoffee} />
         </Slider>
       </HStack>
+      <Text>{dark[darkness]}</Text>
       <HStack>
         <Button
           onClick={() => {

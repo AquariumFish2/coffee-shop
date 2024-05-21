@@ -17,8 +17,8 @@ function HeroSection() {
         color={colors.DarkCoffee}
         zIndex={2}
       >
-        <Heading fontFamily={fonts.decoratedFont}>Welcome to Our Café</Heading>
-        <Text fontFamily={fonts.bodyFont} color={colors.mediumDark}>
+        <Heading fontFamily={fonts.decoratedFont} fontSize={"3em"}>Welcome to Our Café</Heading>
+        <Text fontFamily={fonts.bodyFont} color={colors.mediumDark} fontSize={"1.1em"}>
           where you can enjoy cozy relaxing and warm environment with the best
           coffee in the whole country we get our products from the finest
           sources and hire the best baristas to make the best out of them you

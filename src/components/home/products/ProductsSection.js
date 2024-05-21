@@ -1,7 +1,17 @@
-import { Button, Grid, GridItem, Image, Text, VStack } from "@chakra-ui/react";
+import {
+  Button,
+  Grid,
+  GridItem,
+  HStack,
+  Image,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { useContext } from "react";
 import { cartContext } from "../../../contexts/CartContext";
 import { productsContext } from "../../../contexts/ProcutsContext";
+import { colors } from "../../../data/data";
+import { FaCartPlus } from "react-icons/fa";
 
 function ProductsSection() {
   const { prods } = useContext(productsContext);
@@ -26,9 +36,15 @@ function Product(props) {
   const product = props.product;
   const { addToCart } = useContext(cartContext);
   return (
-    <GridItem borderRadius={"15px"} backgroundColor={"white"} padding={"20px"}>
+    <GridItem
+      borderRadius={"15px"}
+      backgroundColor={"white"}
+      padding={"50px 20px"}
+    >
       <VStack>
-        <Text>{product.name}</Text>
+        <Text fontWeight={"bold"} fontSize={"1.1em"} color={colors.mediumDark}>
+          {product.name}
+        </Text>
         <Image src={product.image} height={"80px"}></Image>
         <Text>${product.price}</Text>
         <Button
@@ -37,7 +53,10 @@ function Product(props) {
             console.log("added?");
           }}
         >
-          Add To Cart
+          <HStack>
+            <FaCartPlus color="blue"></FaCartPlus>
+            <Text>Add To Cart</Text>
+          </HStack>
         </Button>
       </VStack>
     </GridItem>
