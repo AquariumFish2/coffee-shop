@@ -11,6 +11,7 @@ import {
 import { colors, offerImages } from "../../../data/data";
 import { useState } from "react";
 import { GrNext, GrPrevious } from "react-icons/gr";
+import AnimatedBox from "../../AnimatedBox";
 
 function OffersImageViewer() {
   const [currentOffer, setCurrentOffer] = useState(1);
@@ -51,123 +52,125 @@ function OffersImageViewer() {
   };
 
   return (
-    <VStack
-      boxSizing="border-box"
-      gap={0}
-      backgroundColor={`${colors.medium}90`}
-      margin={"0"}
-      width={"100vw"}
-      maxWidth={"100%"}
-    >
-      <Text
-        alignSelf={"flex-start"}
-        padding={"20px 3em 0 "}
-        fontSize={"1.5em"}
-        fontWeight={"bold"}
-        color={"white"}
-      >
-        Running Offers:
-      </Text>
-      <HStack
-        width={"90vw"}
-        height={{ base: "70vw", md: "75vh" }}
-        margin={"2em 3em 3em "}
-        // padding={"2em"}
-        position={"relative"}
-        justifyContent={"center"}
-        alignItems={"center"}
+    <AnimatedBox>
+      <VStack
+        boxSizing="border-box"
         gap={0}
+        backgroundColor={`${colors.medium}90`}
+        margin={"0"}
+        width={"100vw"}
+        maxWidth={"100%"}
       >
-        <Button
-          margin={0}
-          maxWidth={"10vw"}
-          height={"inherit"}
-          borderRadius={"5px 0 0 5px"}
-          backgroundColor={"#000000"}
+        <Text
+          alignSelf={"flex-start"}
+          padding={"20px 3em 0 "}
+          fontSize={"1.5em"}
+          fontWeight={"bold"}
           color={"white"}
-          _hover={{ backgroundColor: "white", color: "black" }}
-          onClick={prevHandler}
         >
-          <GrPrevious />
-        </Button>
-        {
-          <Box
-            width={"75vw"}
+          Running Offers:
+        </Text>
+        <HStack
+          width={"90vw"}
+          height={{ base: "70vw", md: "75vh" }}
+          margin={"2em 3em 3em "}
+          // padding={"2em"}
+          position={"relative"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          gap={0}
+        >
+          <Button
+            margin={0}
+            maxWidth={"10vw"}
             height={"inherit"}
-            position={"relative"}
-            bgColor={"#e9e9e950"}
-            _before={{
-              content: `"${offerImages[currentOffer].sale}%"`,
-              position: "absolute",
-              zIndex: 2,
-              top: "10px",
-              left: "10px",
-              transform: "rotate(315deg)",
-              color: "red",
-              fontWeight: "bold",
-            }}
+            borderRadius={"5px 0 0 5px"}
+            backgroundColor={"#000000"}
+            color={"white"}
+            _hover={{ backgroundColor: "white", color: "black" }}
+            onClick={prevHandler}
           >
-            <Image
-              src={offerImages[currentOffer].img}
-              opacity={imageOpacity}
-              transition={"opacity 0.4s"}
+            <GrPrevious />
+          </Button>
+          {
+            <Box
+              width={"75vw"}
               height={"inherit"}
-              width={"inherit"}
-              objectFit={"cover"}
-            ></Image>
-            <Center
-              position={"absolute"}
-              bottom={"23px"}
-              right={"20px"}
-              fontSize={{ base: "0.6em", md: "1em" }}
+              position={"relative"}
+              bgColor={"#e9e9e950"}
+              _before={{
+                content: `"${offerImages[currentOffer].sale}%"`,
+                position: "absolute",
+                zIndex: 2,
+                top: "10px",
+                left: "10px",
+                transform: "rotate(315deg)",
+                color: "red",
+                fontWeight: "bold",
+              }}
             >
-              <Text
-                textAlign={"center"}
-                backgroundColor={"white"}
-                width={"fit-content"}
-                padding={"5px 15px"}
-                borderRadius={"30px"}
-                marginTop={"10px"}
+              <Image
+                src={offerImages[currentOffer].img}
+                opacity={imageOpacity}
+                transition={"opacity 0.4s"}
+                height={"inherit"}
+                width={"inherit"}
+                objectFit={"cover"}
+              ></Image>
+              <Center
+                position={"absolute"}
+                bottom={"23px"}
+                right={"20px"}
+                fontSize={{ base: "0.6em", md: "1em" }}
               >
-                {offerImages[currentOffer].description}
-              </Text>
-            </Center>
-          </Box>
-        }
-        <Button
-          maxWidth={"10vw"}
-          height={"inherit"}
-          borderRadius={"0 5px 5px 0"}
-          backgroundColor={"#000000"}
-          color={"white"}
-          _hover={{ backgroundColor: "white", color: "black" }}
-          onClick={nextHandler}
-        >
-          <GrNext />
-        </Button>
-        <HStack position={"absolute"} bottom={-7}>
-          {offerImages.map((offer, index) => {
-            return (
-              <Circle
-                minWidth={1}
-                minHeight={1}
-                backgroundColor={
-                  currentOffer === index
-                    ? colors.DarkCoffee
-                    : colors.lightCoffee
-                }
-                border={`1px solid ${colors.mediumDark}`}
-                key={index}
-                cursor={"pointer"}
-                onClick={() => {
-                  selectImage(index);
-                }}
-              ></Circle>
-            );
-          })}
+                <Text
+                  textAlign={"center"}
+                  backgroundColor={"white"}
+                  width={"fit-content"}
+                  padding={"5px 15px"}
+                  borderRadius={"30px"}
+                  marginTop={"10px"}
+                >
+                  {offerImages[currentOffer].description}
+                </Text>
+              </Center>
+            </Box>
+          }
+          <Button
+            maxWidth={"10vw"}
+            height={"inherit"}
+            borderRadius={"0 5px 5px 0"}
+            backgroundColor={"#000000"}
+            color={"white"}
+            _hover={{ backgroundColor: "white", color: "black" }}
+            onClick={nextHandler}
+          >
+            <GrNext />
+          </Button>
+          <HStack position={"absolute"} bottom={-7}>
+            {offerImages.map((offer, index) => {
+              return (
+                <Circle
+                  minWidth={1}
+                  minHeight={1}
+                  backgroundColor={
+                    currentOffer === index
+                      ? colors.DarkCoffee
+                      : colors.lightCoffee
+                  }
+                  border={`1px solid ${colors.mediumDark}`}
+                  key={index}
+                  cursor={"pointer"}
+                  onClick={() => {
+                    selectImage(index);
+                  }}
+                ></Circle>
+              );
+            })}
+          </HStack>
         </HStack>
-      </HStack>
-    </VStack>
+      </VStack>
+    </AnimatedBox>
   );
 }
 

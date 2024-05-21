@@ -1,12 +1,8 @@
 import { HStack, VStack, Image, Grid, GridItem, Text } from "@chakra-ui/react";
 import x from "../../../assets/why-us.jpg";
 import { colors } from "../../../data/data";
-import {
-  TbBrandSpeedtest,
-  TbBread,
-  TbCactus,
-  TbCoffee,
-} from "react-icons/tb";
+import { TbBrandSpeedtest, TbBread, TbCactus, TbCoffee } from "react-icons/tb";
+import AnimatedBox from "../../AnimatedBox";
 
 function WhyUsSection() {
   return (
@@ -21,13 +17,12 @@ function WhyUsSection() {
       flexDirection={{ base: "column", md: "row" }}
     >
       <Grid
-      
         templateColumns={"1fr 1fr"}
         templateAreas={"auto auto"}
         overflowWrap={"normal"}
         overflow={"hidden"}
         width={{ base: "100vw", md: "50vw" }}
-        gap={{base:"30px",md:"60px"}}
+        gap={{ base: "30px", md: "60px" }}
         maxWidth={"100%"}
         height={"80vh"}
       >
@@ -53,6 +48,7 @@ function WhyUsSection() {
           content={`enjoy the best fresh bakery with your coffee all in one place with great discounts`}
         ></Item>
       </Grid>
+
       <Image
         src={x}
         maxHeight={"80vh"}
@@ -68,19 +64,21 @@ function WhyUsSection() {
 
 function Item(props) {
   return (
-    <GridItem padding={"15px"}>
-      <VStack alignItems={"flex-start"}>
-        <HStack>
-          <props.icon style={{ width: "20px", height: "20px" }} />
-          <Text fontSize={{ base: "1em", md: "0.9em", lg: "1em" }}>
-            {props.title}
+    <AnimatedBox>
+      <GridItem padding={"15px"}>
+        <VStack alignItems={"flex-start"}>
+          <HStack>
+            <props.icon style={{ width: "20px", height: "20px" }} />
+            <Text fontSize={{ base: "1em", md: "0.9em", lg: "1em" }}>
+              {props.title}
+            </Text>
+          </HStack>
+          <Text fontSize={"0.9em"} fontWeight={"500"} opacity={"0.5"}>
+            {props.content}
           </Text>
-        </HStack>
-        <Text fontSize={"0.9em"} fontWeight={"500"} opacity={"0.5"}>
-          {props.content}
-        </Text>
-      </VStack>
-    </GridItem>
+        </VStack>
+      </GridItem>
+    </AnimatedBox>
   );
 }
 

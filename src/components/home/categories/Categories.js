@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { categoryContext } from "../../../contexts/CategoriesContext";
 import { FaCheck } from "react-icons/fa";
 import { productsContext } from "../../../contexts/ProcutsContext";
+import AnimatedBox from "../../AnimatedBox";
 
 function Categories() {
   const { categories } = useContext(categoryContext);
@@ -36,41 +37,43 @@ function Category(props) {
   const { updateProductsOnCatChange } = useContext(productsContext);
 
   return (
-    <GridItem
-      opacity={props.category.selected ? 1 : 0.4}
-      padding={{ base: "45px", md: "50px" }}
-      borderRadius={"10px"}
-      backgroundColor={"white"}
-      boxShadow={"2px 2px 5px 1px black"}
-      onClick={() => {
-        updateCategories(props.category);
-        updateProductsOnCatChange();
-        // setChecked(!checked);
-      }}
-      position={"relative"}
-    >
-      <VStack>
-        <Box
-          width={"18px"}
-          height={"18px"}
-          backgroundColor={
-            props.category.selected ? `${colors.mediumDark}` : "transparent"
-          }
-          borderRadius={"3px"}
-          border={`2px solid ${colors.DarkCoffee}`}
-          position={"absolute"}
-          top={3}
-          right={3}
-        >
-          <FaCheck
-            color="white"
-            style={{ width: "12px", height: "12px", margin: "2px" }}
-          />
-        </Box>
-        {props.category.icon}
-        <Text>{props.category.value}</Text>
-      </VStack>
-    </GridItem>
+    <AnimatedBox>
+      <GridItem
+        opacity={props.category.selected ? 1 : 0.4}
+        padding={{ base: "45px", md: "50px" }}
+        borderRadius={"10px"}
+        backgroundColor={"white"}
+        boxShadow={"2px 2px 5px 1px black"}
+        onClick={() => {
+          updateCategories(props.category);
+          updateProductsOnCatChange();
+          // setChecked(!checked);
+        }}
+        position={"relative"}
+      >
+        <VStack>
+          <Box
+            width={"18px"}
+            height={"18px"}
+            backgroundColor={
+              props.category.selected ? `${colors.mediumDark}` : "transparent"
+            }
+            borderRadius={"3px"}
+            border={`2px solid ${colors.DarkCoffee}`}
+            position={"absolute"}
+            top={3}
+            right={3}
+          >
+            <FaCheck
+              color="white"
+              style={{ width: "12px", height: "12px", margin: "2px" }}
+            />
+          </Box>
+          {props.category.icon}
+          <Text>{props.category.value}</Text>
+        </VStack>
+      </GridItem>
+    </AnimatedBox>
   );
 }
 

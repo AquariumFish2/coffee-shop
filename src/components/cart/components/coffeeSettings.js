@@ -17,6 +17,7 @@ import { FaX } from "react-icons/fa6";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { useContext, useState } from "react";
 import { cartContext } from "../../../contexts/CartContext";
+import AnimatedBox from "../../AnimatedBox";
 
 function Settings(props) {
   const item = props.item;
@@ -113,7 +114,7 @@ function Settings(props) {
           <SliderThumb background={colors.DarkCoffee} />
         </Slider>
       </HStack>
-      
+
       <Text fontSize={"1.2em"} color={colors.mediumDark}>
         {dark[darkness]}
       </Text>

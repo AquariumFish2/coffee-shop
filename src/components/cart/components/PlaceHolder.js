@@ -1,9 +1,12 @@
 import { Circle, Image, Text, VStack } from "@chakra-ui/react";
 import { colors } from "../../../data/data";
 import placeHolder from "../../../assets/coffee-mug.png";
+import AnimatedBox from "../../AnimatedBox";
 
 function PlaceHolder() {
-    return ( <VStack
+  return (
+    <AnimatedBox>
+      <VStack
         minHeight={"100vh"}
         width={"100vw"}
         maxWidth={"100%"}
@@ -25,7 +28,9 @@ function PlaceHolder() {
         >
           Please Add items to the cart to start ordering!
         </Text>
-      </VStack> );
+      </VStack>
+    </AnimatedBox>
+  );
 }
 
 export default PlaceHolder;

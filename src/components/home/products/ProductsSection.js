@@ -12,6 +12,7 @@ import { cartContext } from "../../../contexts/CartContext";
 import { productsContext } from "../../../contexts/ProcutsContext";
 import { colors } from "../../../data/data";
 import { FaCartPlus } from "react-icons/fa";
+import AnimatedBox from "../../AnimatedBox";
 
 function ProductsSection() {
   const { prods } = useContext(productsContext);
@@ -36,30 +37,36 @@ function Product(props) {
   const product = props.product;
   const { addToCart } = useContext(cartContext);
   return (
-    <GridItem
-      borderRadius={"15px"}
-      backgroundColor={"white"}
-      padding={"50px 20px"}
-    >
-      <VStack>
-        <Text fontWeight={"bold"} fontSize={"1.1em"} color={colors.mediumDark}>
-          {product.name}
-        </Text>
-        <Image src={product.image} height={"80px"}></Image>
-        <Text>${product.price}</Text>
-        <Button
-          onClick={() => {
-            addToCart(product);
-            console.log("added?");
-          }}
-        >
-          <HStack>
-            <FaCartPlus color="blue"></FaCartPlus>
-            <Text>Add To Cart</Text>
-          </HStack>
-        </Button>
-      </VStack>
-    </GridItem>
+    <AnimatedBox>
+      <GridItem
+        borderRadius={"15px"}
+        backgroundColor={"white"}
+        padding={"50px 20px"}
+      >
+        <VStack>
+          <Text
+            fontWeight={"bold"}
+            fontSize={"1.1em"}
+            color={colors.mediumDark}
+          >
+            {product.name}
+          </Text>
+          <Image src={product.image} height={"80px"}></Image>
+          <Text>${product.price}</Text>
+          <Button
+            onClick={() => {
+              addToCart(product);
+              console.log("added?");
+            }}
+          >
+            <HStack>
+              <FaCartPlus color="blue"></FaCartPlus>
+              <Text>Add To Cart</Text>
+            </HStack>
+          </Button>
+        </VStack>
+      </GridItem>
+    </AnimatedBox>
   );
 }
 
